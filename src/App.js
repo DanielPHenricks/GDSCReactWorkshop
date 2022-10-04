@@ -1,32 +1,43 @@
 import { useState } from "react";
 
+// Component Imports
 import Header from "./components/Header/Header";
-import Form from "./components/Form/Form";
-// import ToDoList from "./components/ToDoList/ToDoList";
+import TodoForm from "./components/TodoForm/TodoForm";
+import TodoList from "./components/TodoList/TodoList";
 
+// Style Imports
 import "./App.css";
 
 const App = () => {
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
 
+  const handleSubmit = (e) => {
+    // Prevent refreshing whenever we click on the Add button
+    e.preventDefault();
+
+    // Add new todo
+    if (todo !== "") {
+      const newTodo = {
+        id: `${todo}-${Date.now()}`,
+        task: todo,
+      };
+      console.log(newTodo);
+      setTodos([...todos, newTodo]);
+      setTodo("");
+    }
+  };
+
   const handleDelete = (id) => {
-    const updatedTodos = [...todos].filter((todo) => todo.id !== id);
-    setTodos(updatedTodos);
+    const delTodo = todos.filter((todo) => todo.id !== id);
+    setTodos([...delTodo]);
   };
 
   return (
-    <div className="app">
+    <div className="container">
       <Header />
-      <Form todo={todo} setTodo={setTodo} todos={todos} setTodos={setTodos} />
-      {todos.map((todo) => {
-        return (
-          <div key={todo.id}>
-            <h2>{todo.title}</h2>
-            <button onClick={() => handleDelete(todo.id)}>Delete</button>
-          </div>
-        );
-      })}
+      <TodoForm handleSubmit={handleSubmit} todo={todo} setTodo={setTodo} />
+      <TodoList todos={todos} handleDelete={handleDelete} />
     </div>
   );
 };
