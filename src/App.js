@@ -22,7 +22,7 @@ const App = () => {
         id: `${todo}-${Date.now()}`,
         task: todo,
       };
-      console.log(newTodo);
+
       setTodos([...todos, newTodo]);
       setTodo("");
     }
