@@ -9,7 +9,9 @@ import TodoList from "./components/TodoList/TodoList";
 import "./App.css";
 
 const App = () => {
+  // state containing inputted value, our new todo
   const [todo, setTodo] = useState("");
+  // state containing all of our todos
   const [todos, setTodos] = useState([]);
 
   const handleSubmit = (e) => {
