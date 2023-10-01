@@ -1,6 +1,4 @@
-# Vandy GDSC Workshop 3!
-
-## Led by Rich Park (rich.park@vanderbilt.edu)
+# Vandy GDSC Workshop 4 (React)!
 
 ## Must Have
 
@@ -10,7 +8,12 @@
 
 ## What You Will Learn
 
-- React
+- React:
+  - State
+  - Props
+  - Components
+- Node.js
+
 
 ## What You Will Accomplish
 
@@ -23,17 +26,15 @@
 - CSS
 - HTML
 
-## My Extensions
+### How do you start the app?
 
-- React Snippets: dsznajder.es7-react-js-snippets
+First, download the code. In the project directory, you can run:
 
-### Getting Started with Create React App
+### `npm install`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Installs the necessary node_modules to run your code
 
-### Available Scripts
-
-In the project directory, you can run:
+### `cd GDSCReactWorkshop` 
 
 ### `npm start`
 

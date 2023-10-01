@@ -1,14 +1,12 @@
 import React from "react";
 
-// Style Imports
-import "./TodoForm.css";
-
 const TodoForm = ({ handleSubmit, todo, setTodo }) => {
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
         value={todo}
+        placeholder="What do you want to do?"
         className="inputBox"
         onChange={(e) => setTodo(e.target.value)}
       />

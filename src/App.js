@@ -1,12 +1,11 @@
 import { useState } from "react";
 
 // Component Imports
-import Header from "./components/Header/Header";
-import TodoForm from "./components/TodoForm/TodoForm";
-import TodoList from "./components/TodoList/TodoList";
+import Header from "./components/Header";
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
 
 // Style Imports
-import "./App.css";
 
 const App = () => {
   // state containing inputted value, our new todo
@@ -22,6 +21,7 @@ const App = () => {
     if (todo !== "") {
       const newTodo = {
         id: `${todo}-${Date.now()}`,
+        date: getFormattedDate(),
         task: todo,
       };
 
@@ -34,6 +34,12 @@ const App = () => {
     const delTodo = todos.filter((todo) => todo.id !== id);
     setTodos([...delTodo]);
   };
+
+  const getFormattedDate = () => {
+    const curr = new Date(Date.now());
+    // note: the month is zero-indexed.
+    return `${curr.getMonth() + 1}/${curr.getDate()} at ${curr.getHours() % 12}:${curr.getMinutes()}: `
+  }
 
   return (
     <div className="container">
